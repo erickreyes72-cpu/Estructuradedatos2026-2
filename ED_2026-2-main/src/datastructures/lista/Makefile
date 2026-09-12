@@ -1,6 +1,6 @@
 cflags = -Wall -Werror -std=c99 -O2 -c
 includes = -I ../nodo
-sourceNodo = ../nodo/nodo.o
+sourceNodo = ../nodo/Nodo.o
 source = $(wildcard *.c)
 source_o = $(wildcard *.o)
 output = ../../../lib/libLista.a
