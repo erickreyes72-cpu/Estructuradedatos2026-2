@@ -1,36 +1,40 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <iostring.h>
-#include <Pila.h>
-#include <Cola.h>
-
-void imprimir(void *);
+#include "practica3.h"
 
 int main(void)
 {
-	Pila pila = inicializarPila(-1);	
-	Cola cola = inicializarCola();
-    char cadena[30];
-	inputCadena("\n Captura cadena: ",cadena,30);
-	
-	for(int i=0; cadena[i]!='\0' ; i++)
-	{
-		push(&pila, &cadena[i]);
-		enqueue(&cola, &cadena[i]);
-	}
-	imprimirPila(pila,imprimir);
-	eliminarPila(&pila,NULL);
-	imprimirCola(cola,imprimir);
-	eliminarCola(&cola,NULL);
-	
-	
-    printf("\n FIN DE PROGRAMA \n\r");
+    int option;
+
+    do
+    {
+        printf("\n[1] PALINDROMO");
+        printf("\n[2] VERIFICAR PARENTESIS");
+        printf("\n[3] TERMINAR");
+
+        printf("\nSelecciona opcion:");
+        scanf("%d", &option);
+        clear_buffer();
+
+        switch(option)
+        {
+            case 1:
+                palindromo();
+                break;
+
+            case 2:
+                verificarParentesis();
+                break;
+
+            case 3:
+                printf("Terminando programa...");
+                break;
+
+            default:
+                printf("\nOpcion invalida.");
+        }
+
+    } while(option != 3);
+
     return 0;
-}
-
-
-void imprimir(void *dato)
-{
-	printf("%c",*(char*)dato);
 }
